@@ -159,14 +159,22 @@ class _MyHomePageState extends State<MyHomePage> {
   void _selectDefendingBodyPart(final BodyPart value) {
     setState(() {
       defendingBodyPart = value;
-      goButtonColor = const Color.fromRGBO(0, 0, 0, 0.87);
+      if(attackingBodyPart != null) {
+        goButtonColor = const Color.fromRGBO(0, 0, 0, 0.87);
+      } else {
+        goButtonColor = const Color.fromRGBO(0, 0, 0, 0.38);
+      }
     });
   }
 
   void _selectAttackingBodyPart(final BodyPart value) {
     setState(() {
       attackingBodyPart = value;
-      goButtonColor = const Color.fromRGBO(0, 0, 0, 0.87);
+      if(defendingBodyPart != null) {
+        goButtonColor = const Color.fromRGBO(0, 0, 0, 0.87);
+      } else {
+        goButtonColor = const Color.fromRGBO(0, 0, 0, 0.38);
+      }
     });
   }
 }
